@@ -32,7 +32,7 @@
  * @link       http://pear.php.net/package/Text_Wiki
  * @see        Text_Wiki_Parse::Text_Wiki_Parse()
  */
-class Text_Wiki_Parse_List extends Text_Wiki_Parse {
+class Text_Wiki_Parse_BBCode_List extends Text_Wiki_Parse {
 
     /**
      * The regular expression used to parse the source text and find

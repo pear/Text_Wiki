@@ -38,7 +38,7 @@
 * 
 */
 
-class Text_Wiki_Parse_List extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_List extends Text_Wiki_Parse {
     
     
     /**
