@@ -36,7 +36,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Underline extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Underline extends Text_Wiki_Parse {
     
     
     /**

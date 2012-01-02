@@ -33,7 +33,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Prefilter extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Prefilter extends Text_Wiki_Parse {
     
     
     /**

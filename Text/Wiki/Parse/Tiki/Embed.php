@@ -40,7 +40,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Embed extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Embed extends Text_Wiki_Parse {
     
     var $conf = array(
         'base' => '/path/to/scripts/'

@@ -31,7 +31,7 @@
 */
 
 //NONE in Tiki
-class Text_Wiki_Parse_Subscript extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Subscript extends Text_Wiki_Parse {
     
     
     /**

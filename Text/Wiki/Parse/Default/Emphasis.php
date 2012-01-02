@@ -20,7 +20,7 @@
 * 
 * Parses for emphasized text.
 * 
-* This class implements a Text_Wiki_Parse to find source text marked for
+* This class implements a Text_Wiki_Parse_Default to find source text marked for
 * emphasis (italics) as defined by text surrounded by two single-quotes.
 * On parsing, the text itself is left in place, but the starting and ending
 * instances of two single-quotes are replaced with tokens.
@@ -33,7 +33,7 @@
 * 
 */
 
-class Text_Wiki_Parse_emphasis extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_emphasis extends Text_Wiki_Parse {
     
     
     /**

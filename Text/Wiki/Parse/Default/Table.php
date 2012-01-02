@@ -20,7 +20,7 @@
 * 
 * Parses for table markup.
 * 
-* This class implements a Text_Wiki_Parse to find source text marked as a
+* This class implements a Text_Wiki_Parse_Default to find source text marked as a
 * set of table rows, where a line start and ends with double-pipes (||)
 * and uses double-pipes to separate table cells.  The rows must be on
 * sequential lines (no blank lines between them) -- a blank line
@@ -34,7 +34,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Table extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Table extends Text_Wiki_Parse {
     
     
     /**

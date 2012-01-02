@@ -32,7 +32,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Raw extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Raw extends Text_Wiki_Parse {
     
     
     /**

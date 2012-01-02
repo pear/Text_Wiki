@@ -28,7 +28,7 @@
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Text_Wiki
  */
-class Text_Wiki_Parse_Plugin extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Plugin extends Text_Wiki_Parse {
 
     /**
      * Configurations keys, the script's name of the plugin will be prefixed and an extension added

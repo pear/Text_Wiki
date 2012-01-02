@@ -41,7 +41,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Freelink extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Freelink extends Text_Wiki_Parse {
     
     var $conf = array (
                        'utf-8' => false

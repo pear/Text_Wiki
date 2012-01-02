@@ -20,7 +20,7 @@
 * 
 * Parses for centered lines of text.
 * 
-* This class implements a Text_Wiki_Parse to find lines marked for centering.
+* This class implements a Text_Wiki_Parse_Default to find lines marked for centering.
 * The line must start with "= " (i.e., an equal-sign followed by a space).
 *
 * @category Text
@@ -31,7 +31,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Center extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Center extends Text_Wiki_Parse {
     
     
     /**
@@ -75,4 +75,3 @@ class Text_Wiki_Parse_Center extends Text_Wiki_Parse {
         return "\n" . $start . $matches[1] . $end . "\n";
     }
 }
-?>

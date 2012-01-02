@@ -1324,27 +1324,27 @@ class Text_Wiki {
 
     function loadParseObj($rule)
     {
+        list(,,$name) = explode("_", get_class($this));
+
         $rule = ucwords(strtolower($rule));
-        $file = $rule . '.php';
-        $class = "Text_Wiki_Parse_$rule";
 
-        if (! class_exists($class)) {
-            $loc = $this->findFile('parse', $file);
-            if ($loc) {
-                // found the class
-                include_once $loc;
-            } else {
-                // can't find the class
-                $this->parseObj[$rule] = null;
-                // can't find the class
-                return $this->error(
-                    "Parse rule '$rule' not found"
-                );
+        // Attempt to load the correct class, or fall back on the 'default' implementation.
+        foreach (array($name, 'Default') as $package_name) {
+            $class = "Text_Wiki_Parse_" . $package_name . "_" . $rule;
+
+            if (class_exists($class)) {
+                $this->parseObj[$rule] =& new $class($this);
+
+                return;
             }
+
         }
-
-        $this->parseObj[$rule] =& new $class($this);
-
+        // can't find the class
+        $this->parseObj[$rule] = null;
+        // can't find the class
+        return $this->error(
+            "Parse rule '$rule' not found"
+        );
     }
 
 

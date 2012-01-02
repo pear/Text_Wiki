@@ -20,7 +20,7 @@
 * 
 * Parses for freelinked page links.
 * 
-* This class implements a Text_Wiki_Parse to find source text marked as a
+* This class implements a Text_Wiki_Parse_Default to find source text marked as a
 * wiki freelink, and automatically create a link to that page.
 * 
 * A freelink is any page name not conforming to the standard
@@ -39,7 +39,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Freelink extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Freelink extends Text_Wiki_Parse {
     
     var $conf = array (
                        'utf-8' => false
@@ -47,7 +47,7 @@ class Text_Wiki_Parse_Freelink extends Text_Wiki_Parse {
     
     /**
     * 
-    * Constructor.  We override the Text_Wiki_Parse constructor so we can
+    * Constructor.  We override the Text_Wiki_Parse_Default constructor so we can
     * explicitly comment each part of the $regex property.
     * 
     * @access public
@@ -56,7 +56,7 @@ class Text_Wiki_Parse_Freelink extends Text_Wiki_Parse {
     * 
     */
     
-    function Text_Wiki_Parse_Freelink(&$obj)
+    function Text_Wiki_Parse_Default_Freelink(&$obj)
     {
         parent::Text_Wiki_Parse($obj);
         if ($this->getConf('utf-8')) {

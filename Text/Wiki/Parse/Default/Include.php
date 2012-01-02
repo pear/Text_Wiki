@@ -18,7 +18,7 @@
 
 /**
 * 
-* This class implements a Text_Wiki_Parse to include the results of a
+* This class implements a Text_Wiki_Parse_Default to include the results of a
 * script directly into the source at parse-time; thus, the output of the
 * script will be parsed by Text_Wiki.  This differs from the 'embed'
 * rule, which incorporates the results at render-time, meaning that the
@@ -38,7 +38,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Include extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Include extends Text_Wiki_Parse {
     
     var $conf = array(
         'base' => '/path/to/scripts/'

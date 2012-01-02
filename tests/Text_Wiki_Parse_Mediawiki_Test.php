@@ -21,7 +21,7 @@ require_once 'Text/Wiki/Parse/Mediawiki/Url.php';
 require_once 'Text/Wiki/Parse/Mediawiki/Wikilink.php';
 
 // default parse rules used by Mediawiki parser
-require_once 'Text/Wiki/Parse/Default/Horiz.php';
+require_once 'Text/Wiki/Parse/Mediawiki/Horiz.php';
 
 class Text_Wiki_Parse_Mediawiki_AllTests extends PHPUnit_Framework_TestSuite
 {
@@ -61,7 +61,7 @@ class Text_Wiki_Parse_Mediawiki_SetUp_Tests extends PHPUnit_Framework_TestCase
         $obj = Text_Wiki::factory('Mediawiki');
         $testClassName = get_class($this);
         $ruleName = preg_replace('/Text_Wiki_Parse_Mediawiki_(.+?)_Test/', '\\1', $testClassName);
-        $this->className = 'Text_Wiki_Parse_' . $ruleName;
+        $this->className = 'Text_Wiki_Parse_Mediawiki_' . $ruleName;
         $this->t = new $this->className($obj);
 
         if (file_exists(dirname(__FILE__) . '/fixtures/mediawiki_syntax_to_test_' . strtolower($ruleName) . '.txt')) {
@@ -160,7 +160,7 @@ class Text_Wiki_Parse_Mediawiki_Emphasis_Test extends PHPUnit_Framework_TestCase
 
     public function testMediawikiParseEmphasisParse()
     {
-        $obj = $this->getMock('Text_Wiki_Parse_Emphasis', array('process'), array(), 'Text_Wiki_Parse_Emphasis_Parse_Mock', false);
+        $obj = $this->getMock('Text_Wiki_Parse_Mediawiki_Emphasis', array('process'), array(), 'Text_Wiki_Parse_Emphasis_Parse_Mock', false);
         $obj->wiki = $this->getMock('Text_Wiki');
         $obj->wiki->source = file_get_contents(dirname(__FILE__) . '/fixtures/mediawiki_syntax.txt');
 
@@ -174,7 +174,7 @@ class Text_Wiki_Parse_Mediawiki_Emphasis_Test extends PHPUnit_Framework_TestCase
     public function testMediawikiParseEmphasisProcess()
     {
         $textwiki = Text_Wiki::factory('Mediawiki');
-        $obj = new Text_Wiki_Parse_Emphasis($textwiki);
+        $obj = new Text_Wiki_Parse_Mediawiki_Emphasis($textwiki);
 
         $lines = array(
             "'''Bold text''' and ''italic text'' and even '''''bold italic text'''''",
@@ -692,7 +692,7 @@ class Text_Wiki_Parse_Mediawiki_Url_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $textWiki = new Text_Wiki('Mediawiki');
-        $this->obj = new Text_Wiki_Parse_Url($textWiki);
+        $this->obj = new Text_Wiki_Parse_Mediawiki_Url($textWiki);
     }
 
     public function testMediawikiParseUrlParse()

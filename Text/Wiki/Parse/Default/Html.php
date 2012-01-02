@@ -20,7 +20,7 @@
 * 
 * Parses for blocks of HTML code.
 * 
-* This class implements a Text_Wiki_Parse to find source text marked as
+* This class implements a Text_Wiki_Parse_Default to find source text marked as
 * HTML to be redndred as-is.  The block start is marked by <html> on its
 * own line, and the block end is marked by </html> on its own line.
 *
@@ -32,7 +32,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Html extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Html extends Text_Wiki_Parse {
     
     
     /**

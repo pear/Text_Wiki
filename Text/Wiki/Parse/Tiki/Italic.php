@@ -35,7 +35,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Italic extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Italic extends Text_Wiki_Parse {
     
     
     /**

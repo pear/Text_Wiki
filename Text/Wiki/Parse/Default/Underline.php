@@ -34,7 +34,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Underline extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Underline extends Text_Wiki_Parse {
     
     
     /**

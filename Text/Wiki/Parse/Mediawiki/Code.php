@@ -33,7 +33,7 @@
  * @link       http://pear.php.net/package/Text_Wiki
  * @see        Text_Wiki_Parse::Text_Wiki_Parse()
  */
-class Text_Wiki_Parse_Code extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Mediawiki_Code extends Text_Wiki_Parse {
     
     /**
     * The regular expression used to find source text matching this

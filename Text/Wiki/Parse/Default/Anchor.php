@@ -33,7 +33,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Anchor extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Anchor extends Text_Wiki_Parse {
     
     
     /**
@@ -84,4 +84,3 @@ class Text_Wiki_Parse_Anchor extends Text_Wiki_Parse {
         return $start . trim($text) . $end;
     }
 }
-?>

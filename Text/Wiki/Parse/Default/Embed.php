@@ -20,7 +20,7 @@
 * 
 * Embeds the results of a PHP script at render-time.
 * 
-* This class implements a Text_Wiki_Parse to embed the contents of a URL
+* This class implements a Text_Wiki_Parse_Default to embed the contents of a URL
 * inside the page at render-time.  Typically used to get script output.
 * This differs from the 'include' rule, which incorporates results at
 * parse-time; 'embed' output does not get parsed by Text_Wiki, while
@@ -38,7 +38,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Embed extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Embed extends Text_Wiki_Parse {
     
     var $conf = array(
         'base' => '/path/to/scripts/'
@@ -103,4 +103,3 @@ class Text_Wiki_Parse_Embed extends Text_Wiki_Parse {
         );
     }
 }
-?>

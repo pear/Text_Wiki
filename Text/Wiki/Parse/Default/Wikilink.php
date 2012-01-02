@@ -42,7 +42,7 @@
 *
 */
 
-class Text_Wiki_Parse_Wikilink extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Wikilink extends Text_Wiki_Parse {
 
     var $conf = array (
                        'ext_chars' => false,
@@ -53,7 +53,7 @@ class Text_Wiki_Parse_Wikilink extends Text_Wiki_Parse {
     *
     * Constructor.
     *
-    * We override the Text_Wiki_Parse constructor so we can
+    * We override the Text_Wiki_Parse_Default constructor so we can
     * explicitly comment each part of the $regex property.
     *
     * @access public
@@ -62,7 +62,7 @@ class Text_Wiki_Parse_Wikilink extends Text_Wiki_Parse {
     *
     */
 
-    function Text_Wiki_Parse_Wikilink(&$obj)
+    function Text_Wiki_Parse_Default_Wikilink(&$obj)
     {
         parent::Text_Wiki_Parse($obj);
 

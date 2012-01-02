@@ -44,7 +44,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Wikilink extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Wikilink extends Text_Wiki_Parse {
     
     var $conf = array (
                        'ext_chars' => false,

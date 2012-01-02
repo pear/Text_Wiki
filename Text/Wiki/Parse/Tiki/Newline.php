@@ -34,7 +34,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Newline extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Newline extends Text_Wiki_Parse {
     
     
     /**

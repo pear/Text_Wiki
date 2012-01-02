@@ -20,7 +20,7 @@
 * 
 * Looks through parsed text and builds a table of contents.
 * 
-* This class implements a Text_Wiki_Parse to find all heading tokens and
+* This class implements a Text_Wiki_Parse_Default to find all heading tokens and
 * build a table of contents.  The [[toc]] tag gets replaced with a list
 * of all the level-2 through level-6 headings.
 *
@@ -33,7 +33,7 @@
 */
 
 
-class Text_Wiki_Parse_Toc extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Toc extends Text_Wiki_Parse {
     
     
     /**

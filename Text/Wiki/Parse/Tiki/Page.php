@@ -24,7 +24,7 @@
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Text_Wiki
  */
-class Text_Wiki_Parse_Page extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Page extends Text_Wiki_Parse {
 
 
     /**

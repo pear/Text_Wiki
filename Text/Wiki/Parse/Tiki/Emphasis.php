@@ -35,7 +35,7 @@
 * 
 */
 
-class Text_Wiki_Parse_emphasis extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Emphasis extends Text_Wiki_Parse {
     
     
     /**

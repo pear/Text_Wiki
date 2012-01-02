@@ -28,7 +28,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Colortext extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Colortext extends Text_Wiki_Parse {
     
     /**
     * 
@@ -86,4 +86,3 @@ class Text_Wiki_Parse_Colortext extends Text_Wiki_Parse {
         return $start . $matches[2] . $end;
     }
 }
-?>

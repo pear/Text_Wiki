@@ -30,7 +30,7 @@
  * @link       http://pear.php.net/package/Text_Wiki
  * @see        Text_Wiki_Parse::Text_Wiki_Parse()
  */
-class Text_Wiki_Parse_Newline extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Mediawiki_Newline extends Text_Wiki_Parse {
     
     /**
     * The regular expression used to parse the source text and find

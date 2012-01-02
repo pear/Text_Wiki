@@ -33,7 +33,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Blockquote extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Blockquote extends Text_Wiki_Parse {
     
     
     /**
@@ -159,4 +159,3 @@ class Text_Wiki_Parse_Blockquote extends Text_Wiki_Parse {
         return $return;
     }
 }
-?>

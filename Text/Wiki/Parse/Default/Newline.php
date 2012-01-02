@@ -20,7 +20,7 @@
 * 
 * Parses for implied line breaks indicated by newlines.
 * 
-* This class implements a Text_Wiki_Parse to mark implied line breaks in the
+* This class implements a Text_Wiki_Parse_Default to mark implied line breaks in the
 * source text, usually a single carriage return in the middle of a paragraph
 * or block-quoted text.
 *
@@ -32,7 +32,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Newline extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Newline extends Text_Wiki_Parse {
     
     
     /**

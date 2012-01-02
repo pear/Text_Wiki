@@ -30,7 +30,7 @@
 * 
 */
 //Not used in Tiki
-class Text_Wiki_Parse_Revise extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Revise extends Text_Wiki_Parse {
     
     
     /**

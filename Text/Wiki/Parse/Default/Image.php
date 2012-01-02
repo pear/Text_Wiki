@@ -28,7 +28,7 @@
 *
 */
 
-class Text_Wiki_Parse_Image extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Image extends Text_Wiki_Parse {
 
     /**
      * URL schemes recognized by this rule.
@@ -73,7 +73,7 @@ class Text_Wiki_Parse_Image extends Text_Wiki_Parse {
      * @return The parser object
      * @access public
      */
-    function Text_Wiki_Parse_Image(&$obj)
+    function Text_Wiki_Parse_Default_Image(&$obj)
     {
         $default = $this->conf;
         parent::Text_Wiki_Parse($obj);
@@ -133,4 +133,3 @@ class Text_Wiki_Parse_Image extends Text_Wiki_Parse {
         return $this->wiki->addToken($this->rule, $options);
     }
 }
-?>

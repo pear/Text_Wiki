@@ -30,7 +30,7 @@
  * @link       http://pear.php.net/package/Text_Wiki
  * @see        Text_Wiki_Parse::Text_Wiki_Parse()
  */
-class Text_Wiki_Parse_Raw extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Mediawiki_Raw extends Text_Wiki_Parse {
     
     
     /**

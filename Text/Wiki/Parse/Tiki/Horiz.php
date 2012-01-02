@@ -33,7 +33,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Horiz extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Horiz extends Text_Wiki_Parse {
     
     
     /**

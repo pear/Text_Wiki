@@ -49,7 +49,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Url extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Url extends Text_Wiki_Parse {
     
     
     /**
@@ -97,7 +97,7 @@ class Text_Wiki_Parse_Url extends Text_Wiki_Parse {
     * 
     */
     
-    function Text_Wiki_Parse_Url(&$obj)
+    function Text_Wiki_Parse_Default_Url(&$obj)
     {
         parent::Text_Wiki_Parse($obj);
         

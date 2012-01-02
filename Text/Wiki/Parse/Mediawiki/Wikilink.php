@@ -38,7 +38,7 @@
  * @link       http://pear.php.net/package/Text_Wiki
  * @see        Text_Wiki_Parse::Text_Wiki_Parse()
  */
-class Text_Wiki_Parse_Wikilink extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Mediawiki_Wikilink extends Text_Wiki_Parse {
 
     /**
      * Configuration for this rule (Wikilink)

@@ -30,7 +30,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Colortext extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Colortext extends Text_Wiki_Parse {
     
     /**
     * 

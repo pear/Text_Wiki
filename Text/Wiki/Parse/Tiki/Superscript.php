@@ -31,7 +31,7 @@
 */
 
 //NONE in Tiki
-class Text_Wiki_Parse_Superscript extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Superscript extends Text_Wiki_Parse {
     
     
     /**

@@ -39,7 +39,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Tt extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Tt extends Text_Wiki_Parse {
     
     
     /**

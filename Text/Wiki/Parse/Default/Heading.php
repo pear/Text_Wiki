@@ -20,7 +20,7 @@
 * 
 * Parses for heading text.
 * 
-* This class implements a Text_Wiki_Parse to find source text marked to
+* This class implements a Text_Wiki_Parse_Default to find source text marked to
 * be a heading element, as defined by text on a line by itself prefixed
 * with a number of plus signs (+). The heading text itself is left in
 * the source, but is prefixed and suffixed with delimited tokens marking
@@ -34,7 +34,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Heading extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Heading extends Text_Wiki_Parse {
     
     
     /**

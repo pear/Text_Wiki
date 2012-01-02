@@ -20,7 +20,7 @@
 * 
 * Parses for Text_Wiki delimiter characters already in the source text.
 * 
-* This class implements a Text_Wiki_Parse to find instances of the delimiter
+* This class implements a Text_Wiki_Parse_Default to find instances of the delimiter
 * character already embedded in the source text; it extracts them and replaces
 * them with a delimited token, then renders them as the delimiter itself
 * when the target format is XHTML.
@@ -33,11 +33,11 @@
 * 
 */
 
-class Text_Wiki_Parse_Delimiter extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Delimiter extends Text_Wiki_Parse {
     
     /**
     * 
-    * Constructor.  Overrides the Text_Wiki_Parse constructor so that we
+    * Constructor.  Overrides the Text_Wiki_Parse_Default constructor so that we
     * can set the $regex property dynamically (we need to include the
     * Text_Wiki $delim character.
     * 
@@ -47,7 +47,7 @@ class Text_Wiki_Parse_Delimiter extends Text_Wiki_Parse {
     * 
     */
     
-    function Text_Wiki_Parse_delimiter(&$obj)
+    function Text_Wiki_Parse_Default_Delimiter(&$obj)
     {
         parent::Text_Wiki_Parse($obj);
         $this->regex = '/' . $this->wiki->delim . '/';
@@ -77,4 +77,3 @@ class Text_Wiki_Parse_Delimiter extends Text_Wiki_Parse {
         );
     }
 }
-?>

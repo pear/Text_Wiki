@@ -29,7 +29,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Tighten extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Tighten extends Text_Wiki_Parse {
     
     
     /**

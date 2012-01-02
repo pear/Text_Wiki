@@ -51,7 +51,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Url extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Url extends Text_Wiki_Parse {
     
     
     /**

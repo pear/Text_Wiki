@@ -28,7 +28,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Revise extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Revise extends Text_Wiki_Parse {
     
     
     /**

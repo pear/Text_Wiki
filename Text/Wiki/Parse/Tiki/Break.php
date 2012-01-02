@@ -33,7 +33,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Break extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Break extends Text_Wiki_Parse {
     
     
     /**

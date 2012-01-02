@@ -20,7 +20,7 @@
 * 
 * Parses for explicit line breaks.
 * 
-* This class implements a Text_Wiki_Parse to mark forced line breaks in the
+* This class implements a Text_Wiki_Parse_Default to mark forced line breaks in the
 * source text.
 *
 * @category Text
@@ -31,7 +31,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Break extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Default_Break extends Text_Wiki_Parse {
     
     
     /**
@@ -69,4 +69,3 @@ class Text_Wiki_Parse_Break extends Text_Wiki_Parse {
     }
 }
 
-?>

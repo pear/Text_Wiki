@@ -18,7 +18,7 @@
 * 
 */
 
-class Text_Wiki_Parse_Image extends Text_Wiki_Parse {
+class Text_Wiki_Parse_Tiki_Image extends Text_Wiki_Parse {
     
     
     /**
