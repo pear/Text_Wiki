@@ -160,7 +160,7 @@ class Text_Wiki_Parse_Mediawiki_Emphasis_Test extends PHPUnit_Framework_TestCase
 
     public function testMediawikiParseEmphasisParse()
     {
-        $obj = $this->getMock('Text_Wiki_Parse_Mediawiki_Emphasis', array('process'), array(), 'Text_Wiki_Parse_Emphasis_Parse_Mock', false);
+        $obj = $this->getMock('Text_Wiki_Parse_Mediawiki_Emphasis', array('process'), array(), 'Text_Wiki_Parse_Mediawiki_Emphasis_Parse_Mock', false);
         $obj->wiki = $this->getMock('Text_Wiki');
         $obj->wiki->source = file_get_contents(dirname(__FILE__) . '/fixtures/mediawiki_syntax.txt');
 
