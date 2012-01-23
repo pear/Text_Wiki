@@ -31,7 +31,7 @@
  * @link       http://pear.php.net/package/Text_Wiki
  * @see        Text_Wiki_Parse::Text_Wiki_Parse()
  */
-class Text_Wiki_Parse_Italic extends Text_Wiki_Parse {
+class Text_Wiki_Parse_BBCode_Italic extends Text_Wiki_Parse {
 
     /**
      * The regular expression used to parse the source text and find
@@ -58,5 +58,10 @@ class Text_Wiki_Parse_Italic extends Text_Wiki_Parse {
         $start = $this->wiki->addToken($this->rule, array('type' => 'start'));
         $end = $this->wiki->addToken($this->rule, array('type' => 'end'));
         return $start . $matches[1] . $end;
+    }
+}
+if (!class_exists('Text_Wiki_Parse_Italic', false)) {
+    class Text_Wiki_Parse_Italic extends Text_Wiki_Parse_BBCode_Italic
+    {
     }
 }

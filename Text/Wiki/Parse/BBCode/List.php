@@ -185,3 +185,8 @@ class Text_Wiki_Parse_BBCode_List extends Text_Wiki_Parse {
                     'count' =>  $this->_count[$this->_level]) );
     }
 }
+if (!class_exists('Text_Wiki_Parse_List', false)) {
+    class Text_Wiki_Parse_List extends Text_Wiki_Parse_BBCode_List
+    {
+    }
+}

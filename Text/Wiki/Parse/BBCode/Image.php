@@ -30,7 +30,7 @@
  * @link       http://pear.php.net/package/Text_Wiki
  * @see        Text_Wiki_Parse::Text_Wiki_Parse()
  */
-class Text_Wiki_Parse_Image extends Text_Wiki_Parse {
+class Text_Wiki_Parse_BBCode_Image extends Text_Wiki_Parse {
 
     /**
      * Configuration keys for this rule
@@ -98,5 +98,10 @@ class Text_Wiki_Parse_Image extends Text_Wiki_Parse {
     {
         // tokenize
         return $this->wiki->addToken($this->rule, array('src' => $matches[1], 'attr' => array()));
+    }
+}
+if (!class_exists('Text_Wiki_Parse_Image', false)) {
+    class Text_Wiki_Parse_Image extends Text_Wiki_Parse_BBCode_Image
+    {
     }
 }

@@ -36,7 +36,7 @@
  *          GNU Lesser General Public License, version 2.1
  * @version Release: @package_version@
  */
-class Text_Wiki_Parse_Superscript extends Text_Wiki_Parse
+class Text_Wiki_Parse_BBCode_Superscript extends Text_Wiki_Parse
 {
     // {{{ Properties
 
@@ -73,7 +73,11 @@ class Text_Wiki_Parse_Superscript extends Text_Wiki_Parse
 }
 
 // }}}
-
+if (!class_exists('Text_Wiki_Parse_Superscript', false)) {
+    class Text_Wiki_Parse_Superscript extends Text_Wiki_Parse_BBCode_Superscript
+    {
+    }
+}
 /*
  * Local variables:
  * mode: php
