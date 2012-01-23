@@ -65,7 +65,7 @@ class Text_Wiki_Render_Test extends PHPUnit_Framework_TestCase
     {
         $this->obj->conf = $this->conf;
         foreach ($this->conf as $key => $value) {
-            $this->assertEquals(" class=\"$value\"", $this->obj->formatConf(' class="%s"', $key));
+            $this->assertEquals(" class=\"$value\"", (string)$this->obj->formatConf(' class="%s"', $key));
         }
     }
 
