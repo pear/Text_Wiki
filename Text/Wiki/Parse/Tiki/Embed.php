@@ -105,4 +105,8 @@ class Text_Wiki_Parse_Tiki_Embed extends Text_Wiki_Parse {
         );
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Embed', false)) {
+    class Text_Wiki_Parse_Embed extends Text_Wiki_Parse_Tiki_Embed
+    {
+    }
+}

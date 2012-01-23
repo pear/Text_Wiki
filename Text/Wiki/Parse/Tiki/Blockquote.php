@@ -178,4 +178,8 @@ class Text_Wiki_Parse_Tiki_Blockquote extends Text_Wiki_Parse {
         return "\n$return\n\n";
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Blockquote', false)) {
+    class Text_Wiki_Parse_Blockquote extends Text_Wiki_Parse_Tiki_Blockquote
+    {
+    }
+}

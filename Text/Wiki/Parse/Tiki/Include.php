@@ -99,4 +99,8 @@ class Text_Wiki_Parse_Tiki_Include extends Text_Wiki_Parse {
         return $this->output;
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Include', false)) {
+    class Text_Wiki_Parse_Include extends Text_Wiki_Parse_Tiki_Include
+    {
+    }
+}

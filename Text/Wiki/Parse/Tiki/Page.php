@@ -66,4 +66,8 @@ class Text_Wiki_Parse_Tiki_Page extends Text_Wiki_Parse {
         return $this->wiki->addToken($this->rule);
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Page', false)) {
+    class Text_Wiki_Parse_Page extends Text_Wiki_Parse_Tiki_Page
+    {
+    }
+}

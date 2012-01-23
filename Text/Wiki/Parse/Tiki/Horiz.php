@@ -69,4 +69,8 @@ class Text_Wiki_Parse_Tiki_Horiz extends Text_Wiki_Parse {
         return $this->wiki->addToken($this->rule);
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Horiz', false)) {
+    class Text_Wiki_Parse_Horiz extends Text_Wiki_Parse_Tiki_Horiz
+    {
+    }
+}

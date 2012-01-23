@@ -78,4 +78,8 @@ class Text_Wiki_Parse_Tiki_Box extends Text_Wiki_Parse {
         return $start . $matches[1] . $end;
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Box', false)) {
+    class Text_Wiki_Parse_Box extends Text_Wiki_Parse_Tiki_Box
+    {
+    }
+}

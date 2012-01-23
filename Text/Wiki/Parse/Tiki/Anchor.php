@@ -86,4 +86,8 @@ class Text_Wiki_Parse_Tiki_Anchor extends Text_Wiki_Parse {
         return $start . trim($text) . $end;
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Anchor', false)) {
+    class Text_Wiki_Parse_Anchor extends Text_Wiki_Parse_Tiki_Anchor
+    {
+    }
+}

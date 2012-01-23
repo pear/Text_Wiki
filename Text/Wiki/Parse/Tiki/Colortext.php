@@ -88,4 +88,8 @@ class Text_Wiki_Parse_Tiki_Colortext extends Text_Wiki_Parse {
         return $start . $matches[2] . $end;
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Colortext', false)) {
+    class Text_Wiki_Parse_Colortext extends Text_Wiki_Parse_Tiki_Colortext
+    {
+    }
+}

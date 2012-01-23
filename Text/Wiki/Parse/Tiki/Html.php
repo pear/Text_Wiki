@@ -74,4 +74,8 @@ class Text_Wiki_Parse_Tiki_Html extends Text_Wiki_Parse {
         return $this->wiki->addToken($this->rule, $options) . $matches[2];
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Html', false)) {
+    class Text_Wiki_Parse_Html extends Text_Wiki_Parse_Tiki_Html
+    {
+    }
+}

@@ -64,4 +64,8 @@ class Text_Wiki_Parse_Tiki_Smiley extends Text_Wiki_Parse {
             ));
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Smiley', false)) {
+    class Text_Wiki_Parse_Smiley extends Text_Wiki_Parse_Tiki_Smiley
+    {
+    }
+}

@@ -221,4 +221,8 @@ class Text_Wiki_Parse_Tiki_Wikilink extends Text_Wiki_Parse {
             (isset($matches[5]) ? $matches[5] : '');
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Wikilink', false)) {
+    class Text_Wiki_Parse_Wikilink extends Text_Wiki_Parse_Tiki_Wikilink
+    {
+    }
+}

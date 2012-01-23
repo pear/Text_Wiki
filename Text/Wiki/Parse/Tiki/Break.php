@@ -71,4 +71,8 @@ class Text_Wiki_Parse_Tiki_Break extends Text_Wiki_Parse {
     }
 }
 
-?>
+if (!class_exists('Text_Wiki_Parse_Break', false)) {
+    class Text_Wiki_Parse_Break extends Text_Wiki_Parse_Tiki_Break
+    {
+    }
+}

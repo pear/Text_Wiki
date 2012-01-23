@@ -290,4 +290,8 @@ class Text_Wiki_Parse_Tiki_Url extends Text_Wiki_Parse {
         return $this->wiki->addToken($this->rule, $options);
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Url', false)) {
+    class Text_Wiki_Parse_Url extends Text_Wiki_Parse_Tiki_Url
+    {
+    }
+}

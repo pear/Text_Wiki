@@ -247,4 +247,8 @@ class Text_Wiki_Parse_Tiki_List extends Text_Wiki_Parse {
         return "\n" . $return . "\n\n";
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_List', false)) {
+    class Text_Wiki_Parse_List extends Text_Wiki_Parse_Tiki_List
+    {
+    }
+}

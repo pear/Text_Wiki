@@ -42,4 +42,8 @@ class Text_Wiki_Parse_Tiki_Titlebar extends Text_Wiki_Parse {
         return $start . $matches[1] . $end;
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Titlebar', false)) {
+    class Text_Wiki_Parse_Titlebar extends Text_Wiki_Parse_Tiki_Titlebar
+    {
+    }
+}

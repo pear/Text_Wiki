@@ -145,4 +145,8 @@ class Text_Wiki_Parse_Tiki_Paragraph extends Text_Wiki_Parse {
         }
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Paragraph', false)) {
+    class Text_Wiki_Parse_Paragraph extends Text_Wiki_Parse_Tiki_Paragraph
+    {
+    }
+}

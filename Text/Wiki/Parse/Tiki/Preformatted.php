@@ -71,4 +71,8 @@ class Text_Wiki_Parse_Tiki_Preformatted extends Text_Wiki_Parse {
         return $this->wiki->addToken($this->rule, $options);
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Preformatted', false)) {
+    class Text_Wiki_Parse_Preformatted extends Text_Wiki_Parse_Tiki_Preformatted
+    {
+    }
+}

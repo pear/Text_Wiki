@@ -144,4 +144,8 @@ class Text_Wiki_Parse_Tiki_Revise extends Text_Wiki_Parse {
         return $output;
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Revise', false)) {
+    class Text_Wiki_Parse_Revise extends Text_Wiki_Parse_Tiki_Revise
+    {
+    }
+}

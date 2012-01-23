@@ -77,4 +77,8 @@ class Text_Wiki_Parse_Tiki_Prefilter extends Text_Wiki_Parse {
     }
 
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Prefilter', false)) {
+    class Text_Wiki_Parse_Prefilter extends Text_Wiki_Parse_Tiki_Prefilter
+    {
+    }
+}

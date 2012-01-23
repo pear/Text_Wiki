@@ -84,4 +84,8 @@ class Text_Wiki_Parse_Tiki_Italic extends Text_Wiki_Parse {
         return $start . $matches[1] . $end;
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Italic', false)) {
+    class Text_Wiki_Parse_Italic extends Text_Wiki_Parse_Tiki_Italic
+    {
+    }
+}

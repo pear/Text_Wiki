@@ -113,4 +113,8 @@ class Text_Wiki_Parse_Tiki_Code extends Text_Wiki_Parse {
         return $this->wiki->addToken($this->rule, $options) . $matches[3];
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Code', false)) {
+    class Text_Wiki_Parse_Code extends Text_Wiki_Parse_Tiki_Code
+    {
+    }
+}

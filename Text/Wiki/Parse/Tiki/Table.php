@@ -232,4 +232,8 @@ class Text_Wiki_Parse_Tiki_Table extends Text_Wiki_Parse {
         return "\n$return\n";
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Table', false)) {
+    class Text_Wiki_Parse_Table extends Text_Wiki_Parse_Tiki_Table
+    {
+    }
+}

@@ -48,4 +48,8 @@ class Text_Wiki_Parse_Tiki_Tighten extends Text_Wiki_Parse {
             $this->wiki->source);
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Tighten', false)) {
+    class Text_Wiki_Parse_Tighten extends Text_Wiki_Parse_Tiki_Tighten
+    {
+    }
+}

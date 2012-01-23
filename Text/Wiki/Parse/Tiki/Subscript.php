@@ -79,4 +79,8 @@ class Text_Wiki_Parse_Tiki_Subscript extends Text_Wiki_Parse {
         return $start . $matches[1] . $end;
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Subscript', false)) {
+    class Text_Wiki_Parse_Subscript extends Text_Wiki_Parse_Tiki_Subscript
+    {
+    }
+}

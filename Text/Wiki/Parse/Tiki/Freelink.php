@@ -135,4 +135,8 @@ class Text_Wiki_Parse_Tiki_Freelink extends Text_Wiki_Parse {
         return $this->wiki->addToken($this->rule, $options);
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Freelink', false)) {
+    class Text_Wiki_Parse_Freelink extends Text_Wiki_Parse_Tiki_Freelink
+    {
+    }
+}

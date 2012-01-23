@@ -89,4 +89,8 @@ class Text_Wiki_Parse_Tiki_Strong extends Text_Wiki_Parse {
         return $start . $matches[1] . $end;
     }
 }
-?>
+if (!class_exists('Text_Wiki_Parse_Strong', false)) {
+    class Text_Wiki_Parse_Strong extends Text_Wiki_Parse_Tiki_Strong
+    {
+    }
+}
