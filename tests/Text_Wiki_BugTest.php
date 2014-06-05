@@ -1,6 +1,4 @@
 <?php
-
-require_once 'PHPUnit/Framework/TestCase.php';
 require_once 'Text/Wiki.php';
 require_once 'Text/Wiki/Parse/Default/List.php';
 

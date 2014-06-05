@@ -1,6 +1,4 @@
 <?php
-
-require_once 'PHPUnit/Framework/TestCase.php';
 require_once 'Text/Wiki/Mediawiki.php';
 require_once 'Text/Wiki/Parse/Mediawiki/Break.php';
 require_once 'Text/Wiki/Parse/Mediawiki/Code.php';
