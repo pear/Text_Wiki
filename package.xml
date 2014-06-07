@@ -317,6 +317,10 @@ Req #20274 Closed Please Provides LICENSE file
     <channel>pear.php.net</channel>
    </package>
    <package>
+    <name>Text_Wiki_Creole</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
     <name>Text_Wiki_Tiki</name>
     <channel>pear.php.net</channel>
    </package>
