@@ -62,7 +62,8 @@ class Text_Wiki_Render_Test extends PHPUnit_Framework_TestCase
     public function testFormatConfShouldReturnSprinfFormatedValue()
     {
         $this->obj->conf = $this->conf;
-        foreach ($this->conf as $key => $value) {
+        foreach (array('firstConf', 'secondConf', 'thirdConf') as $key) {
+            $value = $this->conf[$key];
             $this->assertEquals(" class=\"$value\"", (string)$this->obj->formatConf(' class="%s"', $key));
         }
     }
