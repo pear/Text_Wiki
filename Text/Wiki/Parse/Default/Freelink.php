@@ -56,9 +56,9 @@ class Text_Wiki_Parse_Default_Freelink extends Text_Wiki_Parse {
     * 
     */
     
-    function Text_Wiki_Parse_Default_Freelink(&$obj)
+    function __construct(&$obj)
     {
-        parent::Text_Wiki_Parse($obj);
+        parent::__construct($obj);
         if ($this->getConf('utf-8')) {
             $any = '\p{L}';
         } else {
@@ -81,6 +81,22 @@ class Text_Wiki_Parse_Default_Freelink extends Text_Wiki_Parse {
             ")?" .                                                   // END named anchors pattern 0 or 1
             "()\\)\\)" .                                           // double close-parens
             '/'.($this->getConf('utf-8') ? 'u' : '');              // END regex
+    }
+
+    /**
+    * 
+    * Constructor.  We override the Text_Wiki_Parse_Default constructor so we can
+    * explicitly comment each part of the $regex property.
+    * 
+    * @access public
+    * 
+    * @param object &$obj The calling "parent" Text_Wiki object.
+    * 
+    */
+    
+    function Text_Wiki_Parse_Default_Freelink(&$obj)
+    {
+        $this->__construct($obj);
     }
     
     
