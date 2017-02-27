@@ -49,7 +49,6 @@ EOT;
     {
         $data = file_get_contents(dirname(__FILE__) . '/fixtures/bug11649.txt');
         $html = $this->wiki->transform($data);
-        var_dump($html);
         $this->assertTrue(is_string($html));
     }
 }
