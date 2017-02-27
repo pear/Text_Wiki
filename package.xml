@@ -56,8 +56,19 @@ Req #20274 Closed Please Provides LICENSE file
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
+   <dir name="tests">
+    <dir name="fixtures">
+     <file name="test_mediawiki_to_tiki_lists_output.txt" role="test" />
+     <file name="test_mediawiki_to_tiki_lists_source.txt" role="test" />
+     <file name="test_mediawiki_to_tiki_output.txt" role="test" />
+     <file name="test_mediawiki_to_tiki_redirect_output.txt" role="test" />
+     <file name="test_mediawiki_to_tiki_redirect_source.txt" role="test" />
+     <file name="test_mediawiki_to_tiki_source.txt" role="test" />
+    </dir> <!-- /tests/fixtures -->
+   </dir> <!-- /tests -->
    <file baseinstalldir="/" name="doc/parser.php" role="php" />
    <file baseinstalldir="/" name="doc/test_Text_Wiki.php" role="doc" />
+   <file name="README" role="doc" />
    <file baseinstalldir="/" name="tests/Default_Parse_BlockQuote.phpt" role="test" />
    <file baseinstalldir="/" name="tests/Docbook_Render_Url.phpt" role="test" />
    <file baseinstalldir="/" name="tests/Latex_Render_Url.phpt" role="test" />
