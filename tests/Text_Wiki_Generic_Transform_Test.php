@@ -7,6 +7,9 @@ class Text_Wiki_Generic_Transform_Test extends PHPUnit_Framework_TestCase
 
     public function testTransformFromMediawikiToTiki()
     {
+        if (!@include_once('Text/Wiki/Mediawiki.php')) {
+            $this->markTestSkipped('Text_Wiki_Mediawiki not installed');
+        }
         $obj = Text_Wiki::factory('Mediawiki');
         $obj->parseConf['Wikilink']['spaceUnderscore'] = false;
         $source = file_get_contents(dirname(__FILE__) . '/fixtures/test_mediawiki_to_tiki_source.txt');
@@ -16,6 +19,9 @@ class Text_Wiki_Generic_Transform_Test extends PHPUnit_Framework_TestCase
 
     public function testTransformFromMediawikiToTikiListSyntax()
     {
+        if (!@include_once('Text/Wiki/Mediawiki.php')) {
+            $this->markTestSkipped('Text_Wiki_Mediawiki not installed');
+        }
         $obj = Text_Wiki::factory('Mediawiki');
         $obj->parseConf['Wikilink']['spaceUnderscore'] = false;
         $source = file_get_contents(dirname(__FILE__) . '/fixtures/test_mediawiki_to_tiki_lists_source.txt');
@@ -25,6 +31,9 @@ class Text_Wiki_Generic_Transform_Test extends PHPUnit_Framework_TestCase
 
     public function testTransformFromMediawikiToTikiRedirectSyntax()
     {
+        if (!@include_once('Text/Wiki/Mediawiki.php')) {
+            $this->markTestSkipped('Text_Wiki_Mediawiki not installed');
+        }
         $obj = Text_Wiki::factory('Mediawiki');
         $obj->parseConf['Wikilink']['spaceUnderscore'] = false;
         $source = file_get_contents(dirname(__FILE__) . '/fixtures/test_mediawiki_to_tiki_redirect_source.txt');
