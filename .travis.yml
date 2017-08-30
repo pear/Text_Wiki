@@ -1,5 +1,6 @@
 language: php
 install:
+  - pear upgrade pear
   - pear install -fa package.xml
 php:
   - 5.4
