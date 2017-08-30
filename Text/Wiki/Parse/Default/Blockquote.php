@@ -76,7 +76,7 @@ class Text_Wiki_Parse_Default_Blockquote extends Text_Wiki_Parse {
     function process(&$matches)
     {
         // the replacement text we will return to parse()
-        $return = '';
+        $return = "\n";
 
         // the list of post-processing matches
         $list = array();
