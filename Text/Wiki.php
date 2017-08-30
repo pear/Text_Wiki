@@ -1329,6 +1329,13 @@ class Text_Wiki {
         foreach (array($name, 'Default') as $package_name) {
             $class = "Text_Wiki_Parse_" . $package_name . "_" . $rule;
 
+            if (! class_exists($class)) {
+                $loc = $this->findFile('parse', $rule . '.php');
+                if ($loc) {
+                    // found the class
+                    include_once $loc;
+                }
+            }
             if (class_exists($class)) {
                 $this->parseObj[$rule] = new $class($this);
 
