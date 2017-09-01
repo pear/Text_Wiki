@@ -76,7 +76,6 @@ Req #20274 Closed Please Provides LICENSE file
    <file baseinstalldir="/" name="tests/Text_Wiki_BugTest.php" role="test" />
    <file baseinstalldir="/" name="tests/Text_Wiki_Generic_Transform_Test.php" role="test" />
    <file baseinstalldir="/" name="tests/Text_Wiki_Render_Test.php" role="test" />
-   <file baseinstalldir="/" name="tests/Text_Wiki_Render_Tests.php" role="test" />
    <file baseinstalldir="/" name="tests/Xhtml_Render_Url.phpt" role="test" />
    <file baseinstalldir="/" name="tests/fixtures/bug11649.txt" role="test" />
    <file baseinstalldir="/" name="tests/fixtures/text_wiki_sample_syntax_transformed_to_plain.txt" role="test" />
