@@ -12,7 +12,7 @@ class Text_Wiki_Render_Test extends PHPUnit_Framework_TestCase
         $obj = Text_Wiki::singleton();
         $this->obj = new Text_Wiki_Render($obj);
 
-        $this->conf = array('firstConf' => 'firstConfValue', 
+        $this->conf = array('firstConf' => 'firstConfValue',
                             'secondConf' => 'secondConfValue',
                             'thirdConf' => 'thirdConfValue',
                             'img_ext' => array('jpg', 'jpeg', 'gif', 'png'),
@@ -27,9 +27,9 @@ class Text_Wiki_Render_Test extends PHPUnit_Framework_TestCase
          * $this->format variables). That is why we are creating an instance of
          * Text_Wiki_Render_Xhtml and Text_Wiki_Render_Xhtml_Address instead. If you have a
          * better idea feel free to improve this test
-         */ 
+         */
         $wiki = Text_Wiki::singleton();
-        
+
         $obj = new Text_Wiki_Render_Xhtml($wiki);
         $this->assertEquals($wiki, $obj->wiki, 'Should set reference to Text_Wiki object');
         $this->assertEquals('Xhtml', $obj->format);
@@ -42,11 +42,11 @@ class Text_Wiki_Render_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('Address', $obj->rule);
         $this->assertEquals(array('css' => null), $obj->conf);
     }
-    
+
     public function testGetConfShouldReturnConfValue()
     {
         $this->obj->conf = $this->conf;
-        
+
         foreach ($this->conf as $key => $value) {
             $this->assertEquals($value, $this->obj->getConf($key));
             $this->assertEquals($value, $this->obj->getConf($key, 'DefaultValue'));
@@ -58,7 +58,7 @@ class Text_Wiki_Render_Test extends PHPUnit_Framework_TestCase
         $this->obj->conf = $this->conf;
         $this->assertEquals('DefaultValue', $this->obj->getConf('InvalidKey', 'DefaultValue'));
     }
-    
+
     public function testFormatConfShouldReturnSprinfFormatedValue()
     {
         $this->obj->conf = $this->conf;
@@ -72,7 +72,7 @@ class Text_Wiki_Render_Test extends PHPUnit_Framework_TestCase
     {
         $this->obj->conf = $this->conf;
         $this->assertNull($this->obj->formatConf(' class="%s"', 'InvalidKey'));
-        $this->assertNull($this->obj->formatConf(' class="%s"', null));        
+        $this->assertNull($this->obj->formatConf(' class="%s"', null));
     }
 
     public function testUrlEncode()
@@ -91,6 +91,30 @@ class Text_Wiki_Render_Test extends PHPUnit_Framework_TestCase
         $text = "<a href='test'>Test</a>";
         $this->assertEquals("&lt;a href='test'&gt;Test&lt;/a&gt;", $this->obj->textEncode($text));
     }
-    
-}
 
+    public function testMarkupToHtml()
+    {
+        $wiki = Text_Wiki::singleton();
+
+        $markup = <<<MARKUP
++ Sample Page for Wiki Markup
+
+++ General Notes
+
+The markup described is a combination of the [http://tavi.sourceforge.net \
+WikkTikkiTavi] and [http://develnet.org/ coWiki] markup styles.
+MARKUP;
+        $expected = <<<XHTML
+
+<h1 id="toc0"> Sample Page for Wiki Markup</h1>
+
+<h2 id="toc1"> General Notes</h2>
+<p>The markup described is a combination of the <a href="http://tavi.sourceforge.net" onclick="window.open(this.href, '_blank'); return false;">WikkTikkiTavi</a> and <a href="http://develnet.org/" onclick="window.open(this.href, '_blank'); return false;">coWiki</a> markup styles.</p>
+
+
+XHTML;
+
+        $this->assertEquals($expected, $wiki->transform($markup, 'Xhtml'));
+    }
+
+}
