@@ -96,7 +96,7 @@ class Text_Wiki_Parse_Default_Freelink extends Text_Wiki_Parse {
     
     function Text_Wiki_Parse_Default_Freelink(&$obj)
     {
-        $this->__construct($obj);
+        self::__construct($obj);
     }
     
     

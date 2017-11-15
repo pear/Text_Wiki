@@ -417,7 +417,7 @@ class Text_Wiki {
     */
     function Text_Wiki($rules = null)
     {
-        $this->__construct($rules);
+        self::__construct($rules);
     }
 
     /**

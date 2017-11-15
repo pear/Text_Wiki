@@ -145,7 +145,7 @@ class Text_Wiki_Parse {
 
     function Text_Wiki_Parse(&$obj)
     {
-        $this->__construct($obj);
+        self::__construct($obj);
     }
 
 
