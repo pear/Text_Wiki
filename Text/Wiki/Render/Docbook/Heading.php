@@ -161,7 +161,7 @@ class Text_Wiki_Render_Docbook_Heading extends Text_Wiki_Render {
      */
     function Text_Wiki_Render_Docbook_Heading(&$obj)
     {
-        $this->__construct($obj);
+        self::__construct($obj);
     }
 
      /**

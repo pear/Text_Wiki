@@ -148,7 +148,7 @@ class Text_Wiki_Render {
 
     function Text_Wiki_Render(&$obj)
     {
-        $this->__construct($obj);
+        self::__construct($obj);
     }
 
 
