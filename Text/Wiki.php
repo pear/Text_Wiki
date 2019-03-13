@@ -5,12 +5,12 @@
  *
  * PHP versions 4 and 5
  *
- * @category   Text
- * @package    Text_Wiki
- * @author     Paul M. Jones <pmjones@php.net>
- * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id$
- * @link       http://pear.php.net/package/Text_Wiki
+ * @category Text
+ * @package  Text_Wiki
+ * @author   Paul M. Jones <pmjones@php.net>
+ * @license  http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Text_Wiki
  */
 
 /**
@@ -29,24 +29,23 @@ require_once 'Text/Wiki/Render.php';
  * This is the "master" class for handling the management and convenience
  * functions to transform Wiki-formatted text.
  *
- * @category   Text
- * @package    Text_Wiki
- * @author     Paul M. Jones <pmjones@php.net>
- * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    Release: @package_version@
- * @link       http://pear.php.net/package/Text_Wiki
+ * @category Text
+ * @package  Text_Wiki
+ * @author   Paul M. Jones <pmjones@php.net>
+ * @license  http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
+ * @version  Release: @package_version@
+ * @link     http://pear.php.net/package/Text_Wiki
  */
-class Text_Wiki {
+class Text_Wiki
+{
 
     /**
-    *
-    * The default list of rules, in order, to apply to the source text.
-    *
-    * @access public
-    *
-    * @var array
-    *
-    */
+     * The default list of rules, in order, to apply to the source text.
+     *
+     * @access public
+     *
+     * @var array
+     */
 
     var $rules = array(
         'Prefilter',
@@ -90,14 +89,12 @@ class Text_Wiki {
 
 
     /**
-    *
-    * The list of rules to not-apply to the source text.
-    *
-    * @access public
-    *
-    * @var array
-    *
-    */
+     * The list of rules to not-apply to the source text.
+     *
+     * @access public
+     *
+     * @var array
+     */
 
     var $disable = array(
         'Html',
@@ -107,52 +104,48 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Custom configuration for rules at the parsing stage.
-    *
-    * In this array, the key is the parsing rule name, and the value is
-    * an array of key-value configuration pairs corresponding to the $conf
-    * property in the target parsing rule.
-    *
-    * For example:
-    *
-    * <code>
-    * $parseConf = array(
-    *     'Include' => array(
-    *         'base' => '/path/to/scripts/'
-    *     )
-    * );
-    * </code>
-    *
-    * Note that most default rules do not need any parsing configuration.
-    *
-    * @access public
-    *
-    * @var array
-    *
-    */
+     * Custom configuration for rules at the parsing stage.
+     *
+     * In this array, the key is the parsing rule name, and the value is
+     * an array of key-value configuration pairs corresponding to the $conf
+     * property in the target parsing rule.
+     *
+     * For example:
+     *
+     * <code>
+     * $parseConf = array(
+     *     'Include' => array(
+     *         'base' => '/path/to/scripts/'
+     *     )
+     * );
+     * </code>
+     *
+     * Note that most default rules do not need any parsing configuration.
+     *
+     * @access public
+     *
+     * @var array
+     */
 
     var $parseConf = array();
 
 
     /**
-    *
-    * Custom configuration for rules at the rendering stage.
-    *
-    * Because rendering may be different for each target format, the
-    * first-level element in this array is always a format name (e.g.,
-    * 'Xhtml').
-    *
-    * Within that first level element, the subsequent elements match the
-    * $parseConf format. That is, the sub-key is the rendering rule name,
-    * and the sub-value is an array of key-value configuration pairs
-    * corresponding to the $conf property in the target rendering rule.
-    *
-    * @access public
-    *
-    * @var array
-    *
-    */
+     * Custom configuration for rules at the rendering stage.
+     *
+     * Because rendering may be different for each target format, the
+     * first-level element in this array is always a format name (e.g.,
+     * 'Xhtml').
+     *
+     * Within that first level element, the subsequent elements match the
+     * $parseConf format. That is, the sub-key is the rendering rule name,
+     * and the sub-value is an array of key-value configuration pairs
+     * corresponding to the $conf property in the target rendering rule.
+     *
+     * @access public
+     *
+     * @var array
+     */
 
     var $renderConf = array(
         'Docbook' => array(),
@@ -165,25 +158,23 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Custom configuration for the output format itself.
-    *
-    * Even though Text_Wiki will render the tokens from parsed text,
-    * the format itself may require some configuration.  For example,
-    * RTF needs to know font names and sizes, PDF requires page layout
-    * information, and DocBook needs a section hierarchy.  This array
-    * matches the $conf property of the the format-level renderer
-    * (e.g., Text_Wiki_Render_Xhtml).
-    *
-    * In this array, the key is the rendering format name, and the value is
-    * an array of key-value configuration pairs corresponding to the $conf
-    * property in the rendering format rule.
-    *
-    * @access public
-    *
-    * @var array
-    *
-    */
+     * Custom configuration for the output format itself.
+     *
+     * Even though Text_Wiki will render the tokens from parsed text,
+     * the format itself may require some configuration.  For example,
+     * RTF needs to know font names and sizes, PDF requires page layout
+     * information, and DocBook needs a section hierarchy.  This array
+     * matches the $conf property of the the format-level renderer
+     * (e.g., Text_Wiki_Render_Xhtml).
+     *
+     * In this array, the key is the rendering format name, and the value is
+     * an array of key-value configuration pairs corresponding to the $conf
+     * property in the rendering format rule.
+     *
+     * @access public
+     *
+     * @var array
+     */
 
     var $formatConf = array(
         'Docbook' => array(),
@@ -196,63 +187,57 @@ class Text_Wiki {
 
 
     /**
-    *
-    * The delimiter for token numbers of parsed elements in source text.
-    *
-    * @access public
-    *
-    * @var string
-    *
-    */
+     * The delimiter for token numbers of parsed elements in source text.
+     *
+     * @access public
+     *
+     * @var string
+     */
 
     var $delim = "\31";
 
 
     /**
-    *
-    * The tokens generated by rules as the source text is parsed.
-    *
-    * As Text_Wiki applies rule classes to the source text, it will
-    * replace portions of the text with a delimited token number.  This
-    * is the array of those tokens, representing the replaced text and
-    * any options set by the parser for that replaced text.
-    *
-    * The tokens array is sequential; each element is itself a sequential
-    * array where element 0 is the name of the rule that generated the
-    * token, and element 1 is an associative array where the key is an
-    * option name and the value is an option value.
-    *
-    * @access private
-    *
-    * @var array
-    *
-    */
+     * The tokens generated by rules as the source text is parsed.
+     *
+     * As Text_Wiki applies rule classes to the source text, it will
+     * replace portions of the text with a delimited token number.  This
+     * is the array of those tokens, representing the replaced text and
+     * any options set by the parser for that replaced text.
+     *
+     * The tokens array is sequential; each element is itself a sequential
+     * array where element 0 is the name of the rule that generated the
+     * token, and element 1 is an associative array where the key is an
+     * option name and the value is an option value.
+     *
+     * @access private
+     *
+     * @var array
+     */
 
     var $tokens = array();
 
     /**
-    * How many tokens generated pro rules.
-    *
-    * Intended to load only necessary render objects
-    *
-    * @access private
-    * @var array
-    */
+     * How many tokens generated pro rules.
+     *
+     * Intended to load only necessary render objects
+     *
+     * @access private
+     * @var    array
+     */
     var $_countRulesTokens = array();
 
 
     /**
-    *
-    * The source text to which rules will be applied.
-    *
-    * This text will be transformed in-place, which means that it will
-    * change as the rules are applied.
-    *
-    * @access private
-    *
-    * @var string
-    *
-    */
+     * The source text to which rules will be applied.
+     *
+     * This text will be transformed in-place, which means that it will
+     * change as the rules are applied.
+     *
+     * @access private
+     *
+     * @var string
+     */
 
     var $source = '';
 
@@ -265,63 +250,55 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Array of rule parsers.
-    *
-    * Text_Wiki creates one instance of every rule that is applied to
-    * the source text; this array holds those instances.  The array key
-    * is the rule name, and the array value is an instance of the rule
-    * class.
-    *
-    * @access private
-    *
-    * @var array
-    *
-    */
+     * Array of rule parsers.
+     *
+     * Text_Wiki creates one instance of every rule that is applied to
+     * the source text; this array holds those instances.  The array key
+     * is the rule name, and the array value is an instance of the rule
+     * class.
+     *
+     * @access private
+     *
+     * @var array
+     */
 
     var $parseObj = array();
 
 
     /**
-    *
-    * Array of rule renderers.
-    *
-    * Text_Wiki creates one instance of every rule that is applied to
-    * the source text; this array holds those instances.  The array key
-    * is the rule name, and the array value is an instance of the rule
-    * class.
-    *
-    * @access private
-    *
-    * @var array
-    *
-    */
+     * Array of rule renderers.
+     *
+     * Text_Wiki creates one instance of every rule that is applied to
+     * the source text; this array holds those instances.  The array key
+     * is the rule name, and the array value is an instance of the rule
+     * class.
+     *
+     * @access private
+     *
+     * @var array
+     */
 
     var $renderObj = array();
 
 
     /**
-    *
-    * Array of format renderers.
-    *
-    * @access private
-    *
-    * @var array
-    *
-    */
+     * Array of format renderers.
+     *
+     * @access private
+     *
+     * @var array
+     */
 
     var $formatObj = array();
 
 
     /**
-    *
-    * Array of paths to search, in order, for parsing and rendering rules.
-    *
-    * @access private
-    *
-    * @var array
-    *
-    */
+     * Array of paths to search, in order, for parsing and rendering rules.
+     *
+     * @access private
+     *
+     * @var array
+     */
 
     var $path = array(
         'parse' => array(),
@@ -331,14 +308,12 @@ class Text_Wiki {
 
 
     /**
-    *
-    * The directory separator character.
-    *
-    * @access private
-    *
-    * @var string
-    *
-    */
+     * The directory separator character.
+     *
+     * @access private
+     *
+     * @var string
+     */
 
     var $_dirSep = DIRECTORY_SEPARATOR;
 
@@ -381,7 +356,7 @@ class Text_Wiki {
      * @return $this
      * @uses   self::Text_Wiki()
      */
-    function __construct($rules = null)
+    public function __construct($rules = null)
     {
         if (is_array($rules)) {
             $this->rules = array();
@@ -401,61 +376,61 @@ class Text_Wiki {
     }
 
     /**
-    *
-    * Constructor.
-    *
-    * **DEPRECATED**
-    * Please use the singleton() or factory() methods.
-    *
-    * @access public
-    *
-    * @param array $rules The set of rules to load for this object. Defaults to null
-    *                     which will load the default ruleset for this parser.
-    *
-    * @return $this
-    * @see    self::__construct()
-    */
-    function Text_Wiki($rules = null)
+     * Constructor.
+     *
+     * **DEPRECATED**
+     * Please use the singleton() or factory() methods.
+     *
+     * @param array $rules The set of rules to load for this object. Defaults to null
+     *                     which will load the default ruleset for this parser.
+     *
+     * @return $this
+     * @see    self::__construct()
+     */
+    public function Text_Wiki($rules = null)
     {
         self::__construct($rules);
     }
 
     /**
-    * Singleton.
-    *
-    * This avoids instantiating multiple Text_Wiki instances where a number
-    * of objects are required in one call, e.g. to save memory in a
-    * CMS invironment where several parsers are required in a single page.
-    *
-    * $single = singleton();
-    *
-    * or
-    *
-    * $single = singleton('Parser', array('Prefilter', 'Delimiter', 'Code', 'Function',
-    *   'Html', 'Raw', 'Include', 'Embed', 'Anchor', 'Heading', 'Toc', 'Horiz',
-    *   'Break', 'Blockquote', 'List', 'Deflist', 'Table', 'Image', 'Phplookup',
-    *   'Center', 'Newline', 'Paragraph', 'Url', 'Freelink', 'Interwiki', 'Wikilink',
-    *   'Colortext', 'Strong', 'Bold', 'Emphasis', 'Italic', 'Underline', 'Tt',
-    *   'Superscript', 'Subscript', 'Revise', 'Tighten'));
-    *
-    * Call using a subset of this list.  The order of passing rulesets in the
-    * $rules array is important!
-    *
-    * After calling this, call $single->setParseConf(), setRenderConf() or setFormatConf()
-    * as usual for a constructed object of this class.
-    *
-    * The internal static array of singleton objects has no index on the parser
-    * rules, the only index is on the parser name.  So if you call this multiple
-    * times with different rules but the same parser name, you will get the same
-    * static parser object each time.
-    *
-    * @since Method available since Release 1.1.0
-    * @param string $parser The parser to be used (defaults to 'Default').
-    * @param array $rules   The set of rules to instantiate the object. This
-    *    will only be used when the first call to singleton is made, if included
-    *    in further calls it will be effectively ignored.
-    * @return &object a reference to the Text_Wiki unique instantiation.
-    */
+     * Singleton.
+     *
+     * This avoids instantiating multiple Text_Wiki instances where a number
+     * of objects are required in one call, e.g. to save memory in a
+     * CMS invironment where several parsers are required in a single page.
+     *
+     * $single = singleton();
+     *
+     * or
+     *
+     * $single = singleton('Parser', array('Prefilter', 'Delimiter', 'Code',
+     *  'Function', 'Html', 'Raw', 'Include', 'Embed', 'Anchor', 'Heading',
+     *  'Toc', 'Horiz', 'Break', 'Blockquote', 'List', 'Deflist', 'Table',
+     *  'Image', 'Phplookup', *   'Center', 'Newline', 'Paragraph', 'Url',
+     *  'Freelink', 'Interwiki', 'Wikilink', *   'Colortext', 'Strong', 'Bold',
+     *  'Emphasis', 'Italic', 'Underline', 'Tt', *   'Superscript', 'Subscript',
+     *  'Revise', 'Tighten'));
+     *
+     * Call using a subset of this list.  The order of passing rulesets in the
+     * $rules array is important!
+     *
+     * After calling this, call $single->setParseConf(), setRenderConf(),
+     * or setFormatConf() as usual for a constructed object of this class.
+     *
+     * The internal static array of singleton objects has no index on the parser
+     * rules, the only index is on the parser name.  So if you call this multiple
+     * times with different rules but the same parser name, you will get the same
+     * static parser object each time.
+     *
+     * @param string $parser The parser to be used (defaults to 'Default').
+     * @param array  $rules  The set of rules to instantiate the object. This
+     *                       will only be used when the first call to
+     *                       singleton is made, if included in further calls
+     *                       it will be effectively ignored.
+     *
+     * @since  Method available since Release 1.1.0
+     * @return &object a reference to the Text_Wiki unique instantiation.
+     */
     public static function singleton($parser = 'Default', $rules = null)
     {
         static $only = array();
@@ -473,9 +448,12 @@ class Text_Wiki {
      * Returns a Text_Wiki Parser class for the specified parser.
      *
      * @param string $parser The name of the parse to instantiate
-     * you need to have Text_Wiki_XXX installed to use $parser = 'XXX', it's E_FATAL
-     * @param array $rules The rules to pass into the constructor
-     *    {@see Text_Wiki::singleton} for a list of rules
+     *                       you need to have Text_Wiki_XXX installed
+     *                       to use $parser = 'XXX', it's E_FATAL
+     * @param array  $rules  The rules to pass into the constructor
+     *                       {@see Text_Wiki::singleton} for a list
+     *                       of rules
+     *
      * @return Text_Wiki a Parser object extended from Text_Wiki
      */
     public static function factory($parser = 'Default', $rules = null)
@@ -483,11 +461,12 @@ class Text_Wiki {
         $class = 'Text_Wiki_' . $parser;
         $file = str_replace('_', '/', $class).'.php';
         if (!class_exists($class)) {
-            require_once $file;
+            include_once $file;
             if (!class_exists($class)) {
                 return Text_Wiki::error(
                     'Class ' . $class . ' does not exist after requiring '. $file .
-                        ', install package ' . $class . "\n");
+                    ', install package ' . $class . "\n"
+                );
             }
         }
 
@@ -495,23 +474,16 @@ class Text_Wiki {
     }
 
     /**
-    *
-    * Set parser configuration for a specific rule and key.
-    *
-    * @access public
-    *
-    * @param string $rule The parse rule to set config for.
-    *
-    * @param array|string $arg1 The full config array to use for the
-    * parse rule, or a conf key in that array.
-    *
-    * @param string $arg2 The config value for the key.
-    *
-    * @return void
-    *
-    */
-
-    function setParseConf($rule, $arg1, $arg2 = null)
+     * Set parser configuration for a specific rule and key.
+     *
+     * @param string       $rule The parse rule to set config for.
+     * @param array|string $arg1 The full config array to use for the
+     *                           parse rule, or a conf key in that array.
+     * @param string       $arg2 The config value for the key.
+     *
+     * @return void
+     */
+    public function setParseConf($rule, $arg1, $arg2 = null)
     {
         $rule = ucwords(strtolower($rule));
 
@@ -531,22 +503,16 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Get parser configuration for a specific rule and key.
-    *
-    * @access public
-    *
-    * @param string $rule The parse rule to get config for.
-    *
-    * @param string $key A key in the conf array; if null,
-    * returns the entire conf array.
-    *
-    * @return mixed The whole conf array if no key is specified,
-    * or the specific conf key value.
-    *
-    */
-
-    function getParseConf($rule, $key = null)
+     * Get parser configuration for a specific rule and key.
+     *
+     * @param string $rule The parse rule to get config for.
+     * @param string $key  A key in the conf array; if null,
+     *                     returns the entire conf array.
+     *
+     * @return mixed The whole conf array if no key is specified,
+     * or the specific conf key value.
+     */
+    public function getParseConf($rule, $key = null)
     {
         $rule = ucwords(strtolower($rule));
 
@@ -572,25 +538,17 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Set renderer configuration for a specific format, rule, and key.
-    *
-    * @access public
-    *
-    * @param string $format The render format to set config for.
-    *
-    * @param string $rule The render rule to set config for in the format.
-    *
-    * @param array|string $arg1 The config array, or the config key
-    * within the render rule.
-    *
-    * @param string $arg2 The config value for the key.
-    *
-    * @return void
-    *
-    */
-
-    function setRenderConf($format, $rule, $arg1, $arg2 = null)
+     * Set renderer configuration for a specific format, rule, and key.
+     *
+     * @param string       $format The render format to set config for.
+     * @param string       $rule   The render rule to set config for in the format.
+     * @param array|string $arg1   The config array, or the config key
+     *                             within the render rule.
+     * @param string       $arg2   The config value for the key.
+     *
+     * @return void
+     */
+    public function setRenderConf($format, $rule, $arg1, $arg2 = null)
     {
         $format = ucwords(strtolower($format));
         $rule = ucwords(strtolower($rule));
@@ -615,30 +573,24 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Get renderer configuration for a specific format, rule, and key.
-    *
-    * @access public
-    *
-    * @param string $format The render format to get config for.
-    *
-    * @param string $rule The render format rule to get config for.
-    *
-    * @param string $key A key in the conf array; if null,
-    * returns the entire conf array.
-    *
-    * @return mixed The whole conf array if no key is specified,
-    * or the specific conf key value.
-    *
-    */
-
-    function getRenderConf($format, $rule, $key = null)
+     * Get renderer configuration for a specific format, rule, and key.
+     *
+     * @param string $format The render format to get config for.
+     * @param string $rule   The render format rule to get config for.
+     * @param string $key    A key in the conf array; if null,
+     *                       returns the entire conf array.
+     *
+     * @return mixed The whole conf array if no key is specified,
+     * or the specific conf key value.
+     */
+    public function getRenderConf($format, $rule, $key = null)
     {
         $format = ucwords(strtolower($format));
         $rule = ucwords(strtolower($rule));
 
-        if (! isset($this->renderConf[$format]) ||
-            ! isset($this->renderConf[$format][$rule])) {
+        if (! isset($this->renderConf[$format])
+            || ! isset($this->renderConf[$format][$rule])
+        ) {
             return null;
         }
 
@@ -659,56 +611,45 @@ class Text_Wiki {
     }
 
     /**
-    *
-    * Set format configuration for a specific rule and key.
-    *
-    * @access public
-    *
-    * @param string $format The format to set config for.
-    *
-    * @param string $key The config key within the format.
-    *
-    * @param string $val The config value for the key.
-    *
-    * @return void
-    *
-    */
-
-    function setFormatConf($format, $arg1, $arg2 = null)
+     * Set format configuration for a specific rule and key.
+     *
+     * @param string $format The format to set config for.
+     * @param string $key    The config key within the format.
+     * @param string $val    The config value for the key.
+     *
+     * @return void
+     */
+    public function setFormatConf($format, $key, $val = null)
     {
-        if (! isset($this->formatConf[$format]) || ! is_array($this->formatConf[$format])) {
+        if (!isset($this->formatConf[$format])
+            || ! is_array($this->formatConf[$format])
+        ) {
             $this->formatConf[$format] = array();
         }
 
         // if first arg is an array, use it as the entire
-        // conf array for the format.  otherwise, treat arg1
-        // as a key and arg2 as a value for the format conf.
-        if (is_array($arg1)) {
-            $this->formatConf[$format] = $arg1;
+        // conf array for the format.  otherwise, treat key
+        // as a key and val as a value for the format conf.
+        if (is_array($key)) {
+            $this->formatConf[$format] = $key;
         } else {
-            $this->formatConf[$format][$arg1] = $arg2;
+            $this->formatConf[$format][$key] = $val;
         }
     }
 
 
 
     /**
-    *
-    * Get configuration for a specific format and key.
-    *
-    * @access public
-    *
-    * @param string $format The format to get config for.
-    *
-    * @param mixed $key A key in the conf array; if null,
-    * returns the entire conf array.
-    *
-    * @return mixed The whole conf array if no key is specified,
-    * or the specific conf key value.
-    *
-    */
-
-    function getFormatConf($format, $key = null)
+     * Get configuration for a specific format and key.
+     *
+     * @param string $format The format to get config for.
+     * @param mixed  $key    A key in the conf array; if null,
+     *                       returns the entire conf array.
+     *
+     * @return mixed The whole conf array if no key is specified,
+     * or the specific conf key value.
+     */
+    public function getFormatConf($format, $key = null)
     {
         // the format does not exist
         if (! isset($this->formatConf[$format])) {
@@ -732,23 +673,17 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Inserts a rule into to the rule set.
-    *
-    * @access public
-    *
-    * @param string $name The name of the rule.  Should be different from
-    * all other keys in the rule set.
-    *
-    * @param string $tgt The rule after which to insert this new rule.  By
-    * default (null) the rule is inserted at the end; if set to '', inserts
-    * at the beginning.
-    *
-    * @return void
-    *
-    */
-
-    function insertRule($name, $tgt = null)
+     * Inserts a rule into to the rule set.
+     *
+     * @param string $name The name of the rule.  Should be different from
+     *                     all other keys in the rule set.
+     * @param string $tgt  The rule after which to insert this new rule.  By
+     *                     default (null) the rule is inserted at the end;
+     *                     if set to '', inserts at the beginning.
+     *
+     * @return void
+     */
+    public function insertRule($name, $tgt = null)
     {
         $name = ucwords(strtolower($name));
         if (! is_null($tgt)) {
@@ -764,8 +699,9 @@ class Text_Wiki {
         // the target name is not null, and not '', but does not exist
         // in the list of rules. this means we're trying to insert after
         // a target key, but the target key isn't there.
-        if (! is_null($tgt) && $tgt != '' &&
-            ! in_array($tgt, $this->rules)) {
+        if (! is_null($tgt) && $tgt != '' 
+            && ! in_array($tgt, $this->rules)
+        ) {
             return false;
         }
 
@@ -803,18 +739,13 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Delete (remove or unset) a rule from the $rules property.
-    *
-    * @access public
-    *
-    * @param string $rule The name of the rule to remove.
-    *
-    * @return void
-    *
-    */
-
-    function deleteRule($name)
+     * Delete (remove or unset) a rule from the $rules property.
+     *
+     * @param string $name The name of the rule to remove.
+     *
+     * @return void
+     */
+    public function deleteRule($name)
     {
         $name = ucwords(strtolower($name));
         $key = array_search($name, $this->rules);
@@ -825,20 +756,14 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Change from one rule to another in-place.
-    *
-    * @access public
-    *
-    * @param string $old The name of the rule to change from.
-    *
-    * @param string $new The name of the rule to change to.
-    *
-    * @return void
-    *
-    */
-
-    function changeRule($old, $new)
+     * Change from one rule to another in-place.
+     *
+     * @param string $old The name of the rule to change from.
+     * @param string $new The name of the rule to change to.
+     *
+     * @return void
+     */
+    public function changeRule($old, $new)
     {
         $old = ucwords(strtolower($old));
         $new = ucwords(strtolower($new));
@@ -852,18 +777,13 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Enables a rule so that it is applied when parsing.
-    *
-    * @access public
-    *
-    * @param string $rule The name of the rule to enable.
-    *
-    * @return void
-    *
-    */
-
-    function enableRule($name)
+     * Enables a rule so that it is applied when parsing.
+     *
+     * @param string $name The name of the rule to enable.
+     *
+     * @return void
+     */
+    public function enableRule($name)
     {
         $name = ucwords(strtolower($name));
         $key = array_search($name, $this->disable);
@@ -872,20 +792,14 @@ class Text_Wiki {
         }
     }
 
-
     /**
-    *
-    * Disables a rule so that it is not applied when parsing.
-    *
-    * @access public
-    *
-    * @param string $rule The name of the rule to disable.
-    *
-    * @return void
-    *
-    */
-
-    function disableRule($name)
+     * Disables a rule so that it is not applied when parsing.
+     *
+     * @param string $name The name of the rule to disable.
+     *
+     * @return void
+     */
+    public function disableRule($name)
     {
         $name = ucwords(strtolower($name));
         $key = array_search($name, $this->disable);
@@ -894,58 +808,45 @@ class Text_Wiki {
         }
     }
 
-
     /**
-    *
-    * Parses and renders the text passed to it, and returns the results.
-    *
-    * First, the method parses the source text, applying rules to the
-    * text as it goes.  These rules will modify the source text
-    * in-place, replacing some text with delimited tokens (and
-    * populating the $this->tokens array as it goes).
-    *
-    * Next, the method renders the in-place tokens into the requested
-    * output format.
-    *
-    * Finally, the method returns the transformed text.  Note that the
-    * source text is transformed in place; once it is transformed, it is
-    * no longer the same as the original source text.
-    *
-    * @access public
-    *
-    * @param string $text The source text to which wiki rules should be
-    * applied, both for parsing and for rendering.
-    *
-    * @param string $format The target output format, typically 'xhtml'.
-    *  If a rule does not support a given format, the output from that
-    * rule is rule-specific.
-    *
-    * @return string The transformed wiki text.
-    *
-    */
-
-    function transform($text, $format = 'Xhtml')
+     * Parses and renders the text passed to it, and returns the results.
+     *
+     * First, the method parses the source text, applying rules to the
+     * text as it goes.  These rules will modify the source text
+     * in-place, replacing some text with delimited tokens (and
+     * populating the $this->tokens array as it goes).
+     *
+     * Next, the method renders the in-place tokens into the requested
+     * output format.
+     *
+     * Finally, the method returns the transformed text.  Note that the
+     * source text is transformed in place; once it is transformed, it is
+     * no longer the same as the original source text.
+     *
+     * @param string $text   The source text to which wiki rules should be
+     *                       applied, both for parsing and for rendering.
+     * @param string $format The target output format, typically 'xhtml'.
+     *                       If a rule does not support a given format, the
+     *                       output from that rule is rule-specific.
+     *
+     * @return string The transformed wiki text.
+     */
+    public function transform($text, $format = 'Xhtml')
     {
         $this->parse($text);
         return $this->render($format);
     }
 
-
     /**
-    *
-    * Sets the $_source text property, then parses it in place and
-    * retains tokens in the $_tokens array property.
-    *
-    * @access public
-    *
-    * @param string $text The source text to which wiki rules should be
-    * applied, both for parsing and for rendering.
-    *
-    * @return void
-    *
-    */
-
-    function parse($text)
+     * Sets the $_source text property, then parses it in place and
+     * retains tokens in the $_tokens array property.
+     *
+     * @param string $text The source text to which wiki rules should be
+     *                     applied, both for parsing and for rendering.
+     *
+     * @return void
+     */
+    public function parse($text)
     {
         // set the object property for the source text
         $this->source = $text;
@@ -955,7 +856,7 @@ class Text_Wiki {
         $this->_countRulesTokens = array();
 
         // apply the parse() method of each requested rule to the source
-        // text.
+        // text
         foreach ($this->rules as $name) {
             // do not parse the rules listed in $disable
             if (! in_array($name, $this->disable)) {
@@ -974,20 +875,15 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Renders tokens back into the source text, based on the requested format.
-    *
-    * @access public
-    *
-    * @param string $format The target output format, typically 'xhtml'.
-    * If a rule does not support a given format, the output from that
-    * rule is rule-specific.
-    *
-    * @return string The transformed wiki text.
-    *
-    */
-
-    function render($format = 'Xhtml')
+     * Renders tokens back into the source text, based on the requested format.
+     *
+     * @param string $format The target output format, typically 'xhtml'.
+     *                       If a rule does not support a given format, the
+     *                       output from that rule is rule-specific.
+     *
+     * @return string The transformed wiki text.
+     */
+    public function render($format = 'Xhtml')
     {
         // the rendering method we're going to use from each rule
         $format = ucwords(strtolower($format));
@@ -1019,12 +915,14 @@ class Text_Wiki {
         }
 
         if ($this->renderingType == 'preg') {
-            $this->output = preg_replace_callback('/'.$this->delim.'(\d+)'.$this->delim.'/',
-                                            array(&$this, '_renderToken'),
-                                            $this->source);
+            $this->output = preg_replace_callback(
+                '/'.$this->delim.'(\d+)'.$this->delim.'/',
+                array(&$this, '_renderToken'),
+                $this->source
+            );
             /*
-//Damn strtok()! Why does it "skip" empty parts of the string. It's useless now!
-        } elseif ($this->renderingType == 'strtok') {
+            //Damn strtok()! Why does it "skip" empty parts of the string. It's useless now!
+            } elseif ($this->renderingType == 'strtok') {
             echo '<pre>'.htmlentities($this->source).'</pre>';
             $t = strtok($this->source, $this->delim);
             $inToken = true;
@@ -1107,7 +1005,9 @@ class Text_Wiki {
         }
 
         if (count($this->_renderCallbacks)) {
-            return $this->error('Render callbacks left over after processing finished');
+            return $this->error(
+                'Render callbacks left over after processing finished'
+            );
         }
         /*
         while (count($this->_renderCallbacks)) {
@@ -1131,23 +1031,43 @@ class Text_Wiki {
     /**
      * Renders a token, for use only as an internal callback
      *
-     * @param array Matches from preg_rpelace_callback, [1] is the token number
+     * @param array $matches Matches from preg_rpelace_callback, [1] is the
+     *                       token number
+     *
      * @return string The rendered text for the token
-     * @access private
      */
-    function _renderToken($matches) {
-        return $this->renderObj[$this->tokens[$matches[1]][0]]->token($this->tokens[$matches[1]][1]);
+    private function _renderToken($matches)
+    {
+        return $this->renderObj[$this->tokens[$matches[1]][0]]->token(
+            $this->tokens[$matches[1]][1]
+        );
     }
 
-    function registerRenderCallback($callback) {
+    /**
+     * Register render callback
+     *
+     * @param mixed $callback Callback
+     *
+     * @return void
+     */
+    public function registerRenderCallback($callback)
+    {
         $this->_blocks[] = $this->_block;
         $this->_block = '';
         $this->_renderCallbacks[] = $callback;
     }
 
-    function popRenderCallback() {
+    /**
+     * Pop a render callback off the stack.
+     *
+     * @return void
+     */
+    public function popRenderCallback()
+    {
         if (count($this->_renderCallbacks) == 0) {
-            return Text_Wiki::error('Render callback popped when no render callbacks in stack');
+            return Text_Wiki::error(
+                'Render callback popped when no render callbacks in stack'
+            );
         } else {
             $callback = array_pop($this->_renderCallbacks);
             $this->_block = call_user_func($callback, $this->_block);
@@ -1163,36 +1083,26 @@ class Text_Wiki {
     }
 
     /**
-    *
-    * Returns the parsed source text with delimited token placeholders.
-    *
-    * @access public
-    *
-    * @return string The parsed source text.
-    *
-    */
-
-    function getSource()
+     * Returns the parsed source text with delimited token placeholders.
+     *
+     * @return string The parsed source text.
+     */
+    public function getSource()
     {
         return $this->source;
     }
 
 
     /**
-    *
-    * Returns tokens that have been parsed out of the source text.
-    *
-    * @access public
-    *
-    * @param array $rules If an array of rule names is passed, only return
-    * tokens matching these rule names.  If no array is passed, return all
-    * tokens.
-    *
-    * @return array An array of tokens.
-    *
-    */
-
-    function getTokens($rules = null)
+     * Returns tokens that have been parsed out of the source text.
+     *
+     * @param array $rules If an array of rule names is passed, only return
+     *                     tokens matching these rule names.  If no array is
+     *                     passed, return all tokens.
+     *
+     * @return array An array of tokens.
+     */
+    public function getTokens($rules = null)
     {
         if (is_null($rules)) {
             return $this->tokens;
@@ -1210,28 +1120,25 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Add a token to the Text_Wiki tokens array, and return a delimited
-    * token number.
-    *
-    * @access public
-    *
-    * @param array $options An associative array of options for the new
-    * token array element.  The keys and values are specific to the
-    * rule, and may or may not be common to other rule options.  Typical
-    * options keys are 'text' and 'type' but may include others.
-    *
-    * @param boolean $id_only If true, return only the token number, not
-    * a delimited token string.
-    *
-    * @return string|int By default, return the number of the
-    * newly-created token array element with a delimiter prefix and
-    * suffix; however, if $id_only is set to true, return only the token
-    * number (no delimiters).
-    *
-    */
-
-    function addToken($rule, $options = array(), $id_only = false)
+     * Add a token to the Text_Wiki tokens array, and return a delimited
+     * token number.
+     *
+     * @param string  $rule    Rule
+     * @param array   $options An associative array of options for the new
+     *                         token array element.  The keys and values
+     *                         are specific to the rule, and may or may
+     *                         not be common to other rule options.
+     *                         Typical options keys are 'text' and 'type'
+     *                         but may include others.
+     * @param boolean $id_only If true, return only the token number, not
+     *                         a delimited token string.
+     *
+     * @return string|int By default, return the number of the
+     * newly-created token array element with a delimiter prefix and
+     * suffix; however, if $id_only is set to true, return only the token
+     * number (no delimiters).
+     */
+    public function addToken($rule, $options = array(), $id_only = false)
     {
         // increment the token ID number.  note that if you parse
         // multiple times with the same Text_Wiki object, the ID number
@@ -1267,28 +1174,21 @@ class Text_Wiki {
         }
     }
 
-
     /**
-    *
-    * Set or re-set a token with specific information, overwriting any
-    * previous rule name and rule options.
-    *
-    * @access public
-    *
-    * @param int $id The token number to reset.
-    *
-    * @param int $rule The rule name to use.
-    *
-    * @param array $options An associative array of options for the
-    * token array element.  The keys and values are specific to the
-    * rule, and may or may not be common to other rule options.  Typical
-    * options keys are 'text' and 'type' but may include others.
-    *
-    * @return void
-    *
-    */
-
-    function setToken($id, $rule, $options = array())
+     * Set or re-set a token with specific information, overwriting any
+     * previous rule name and rule options.
+     *
+     * @param int   $id      The token number to reset.
+     * @param int   $rule    The rule name to use.
+     * @param array $options An associative array of options for the
+     *                       token array element.  The keys and values are
+     *                       specific to the rule, and may or may not be common 
+     *                       to other rule options.  Typical options keys are
+     *                       'text' and 'type' but may include others.
+     *
+     * @return void
+     */
+    public function setToken($id, $rule, $options = array())
     {
         $oldRule = isset($this->tokens[$id]) ? $this->tokens[$id][0] : null;
         // reset the token
@@ -1308,24 +1208,27 @@ class Text_Wiki {
         }
     }
 
-
     /**
-    *
-    * Load a rule parser class file.
-    *
-    * @access public
-    *
-    * @return bool True if loaded, false if not.
-    *
-    */
-
-    function loadParseObj($rule)
+     * Load a rule parser class file.
+     *
+     * @param string $rule name of rule to load
+     *
+     * @return bool True if loaded, false if not.
+     */
+    public function loadParseObj($rule)
     {
-        list(,,$name) = explode("_", get_class($this));
+        // Fix undefined offset error.
+        $name = '';
+        $exploded = explode("_", get_class($this));
+        if (isset($exploded[2])) {
+            $name = isset($exploded[2]);
+        }
 
         $rule = ucwords(strtolower($rule));
 
-        // Attempt to load the correct class, or fall back on the 'default' implementation.
+        /* Attempt to load the correct class, or fall back on
+         * the 'default' implementation.
+         */
         foreach (array($name, 'Default') as $package_name) {
             $class = "Text_Wiki_Parse_" . $package_name . "_" . $rule;
 
@@ -1353,16 +1256,14 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Load a rule-render class file.
-    *
-    * @access public
-    *
-    * @return bool True if loaded, false if not.
-    *
-    */
-
-    function loadRenderObj($format, $rule)
+     * Load a rule-render class file.
+     *
+     * @param string $format format
+     * @param string $rule   rule
+     *
+     * @return bool True if loaded, false if not.
+     */
+    public function loadRenderObj($format, $rule)
     {
         $format = ucwords(strtolower($format));
         $rule = ucwords(strtolower($rule));
@@ -1382,22 +1283,17 @@ class Text_Wiki {
                 );
             }
         }
-
         $this->renderObj[$rule] = new $class($this);
     }
 
-
     /**
-    *
-    * Load a format-render class file.
-    *
-    * @access public
-    *
-    * @return bool True if loaded, false if not.
-    *
-    */
-
-    function loadFormatObj($format)
+     * Load a format-render class file.
+     *
+     * @param string $format format
+     *
+     * @return bool True if loaded, false if not.
+     */
+    public function loadFormatObj($format)
     {
         $format = ucwords(strtolower($format));
         $file = $format . '.php';
@@ -1421,20 +1317,14 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Add a path to a path array.
-    *
-    * @access public
-    *
-    * @param string $type The path-type to add (parse or render).
-    *
-    * @param string $dir The directory to add to the path-type.
-    *
-    * @return void
-    *
-    */
-
-    function addPath($type, $dir)
+     * Add a path to a path array.
+     *
+     * @param string $type The path-type to add (parse or render).
+     * @param string $dir  The directory to add to the path-type.
+     *
+     * @return void
+     */
+    public function addPath($type, $dir)
     {
         $dir = $this->fixPath($dir);
         if (! isset($this->path[$type])) {
@@ -1446,19 +1336,14 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Get the current path array for a path-type.
-    *
-    * @access public
-    *
-    * @param string $type The path-type to look up (plugin, filter, or
-    * template).  If not set, returns all path types.
-    *
-    * @return array The array of paths for the requested type.
-    *
-    */
-
-    function getPath($type = null)
+     * Get the current path array for a path-type.
+     *
+     * @param string $type The path-type to look up (plugin, filter, or
+     *                     template).  If not set, returns all path types.
+     *
+     * @return array The array of paths for the requested type.
+     */
+    public function getPath($type = null)
     {
         if (is_null($type)) {
             return $this->path;
@@ -1471,20 +1356,16 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Searches a series of paths for a given file.
-    *
-    * @param array $type The type of paths to search (template, plugin,
-    * or filter).
-    *
-    * @param string $file The file name to look for.
-    *
-    * @return string|bool The full path and file name for the target file,
-    * or boolean false if the file is not found in any of the paths.
-    *
-    */
-
-    function findFile($type, $file)
+     * Searches a series of paths for a given file.
+     *
+     * @param array  $type The type of paths to search (template, plugin,
+     *                     or filter).
+     * @param string $file The file name to look for.
+     *
+     * @return string|bool The full path and file name for the target file,
+     * or boolean false if the file is not found in any of the paths.
+     */
+    public function findFile($type, $file)
     {
         // get the set of paths
         $set = $this->getPath($type);
@@ -1503,23 +1384,17 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Append a trailing '/' to paths, unless the path is empty.
-    *
-    * @access private
-    *
-    * @param string $path The file path to fix
-    *
-    * @return string The fixed file path
-    *
-    */
-
-    function fixPath($path)
+     * Append a trailing '/' to paths, unless the path is empty.
+     *
+     * @param string $path The file path to fix
+     *
+     * @return string The fixed file path
+     */
+    public function fixPath($path)
     {
         $len = strlen($this->_dirSep);
 
-        if (! empty($path) &&
-            substr($path, -1 * $len, $len) != $this->_dirSep)    {
+        if (!empty($path) && substr($path, -1 * $len, $len) != $this->_dirSep) {
             return $path . $this->_dirSep;
         } else {
             return $path;
@@ -1528,18 +1403,13 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Simple error-object generator.
-    *
-    * @access public
-    *
-    * @param string $message The error message.
-    *
-    * @return object PEAR_Error
-    *
-    */
-
-    function error($message)
+     * Simple error-object generator.
+     *
+     * @param string $message The error message.
+     *
+     * @return object PEAR_Error
+     */
+    public function error($message)
     {
         if (! class_exists('PEAR_Error')) {
             include_once 'PEAR.php';
@@ -1550,15 +1420,12 @@ class Text_Wiki {
 
 
     /**
-    *
-    * Simple error checker.
-    *
-    * @param mixed $obj Check if this is a PEAR_Error object or not.
-    *
-    * @return bool True if a PEAR_Error, false if not.
-    *
-    */
-
+     * Simple error checker.
+     *
+     * @param mixed $obj Check if this is a PEAR_Error object or not.
+     *
+     * @return bool True if a PEAR_Error, false if not.
+     */
     public static function isError(&$obj)
     {
         return is_a($obj, 'PEAR_Error');
