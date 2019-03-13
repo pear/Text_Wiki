@@ -30,10 +30,10 @@ It is highly configurable and can be easily extended.</description>
   <email>del@babel.com.au</email>
   <active>yes</active>
  </developer>
- <date>2014-06-07</date>
- <time>11:16:10</time>
+ <date>2019-03-13</date>
+ <time>00:16:10</time>
  <version>
-  <release>1.2.2</release>
+  <release>1.2.3</release>
   <api>1.2.0</api>
  </version>
  <stability>
@@ -544,6 +544,23 @@ Bug #18289 Closed List not properly parsed
 Bug #19028 Closed remove error_reporting (for PEAR QA team)
 Bug #20110 Closed package.xml does not validate
 Req #20274 Closed Please Provides LICENSE file
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.3</release>
+    <api>1.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2019-03-13</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>
+QA release
+
+Bug #23791  Undefined offset: 2 in /usr/share/php/Text/Wiki.php
    </notes>
   </release>
  </changelog>
