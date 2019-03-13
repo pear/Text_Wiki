@@ -44,15 +44,8 @@ It is highly configurable and can be easily extended.</description>
  <notes>
 QA release
 
-Bug #11649 Closed New Code regex fails
-Req #12569 Closed Adding &apos;base_url&apos; to XHTML Toc renderer
-Bug #12719 Closed Blockquote parsing bugs
-Bug #12722 Closed HTML Blockquote compliance
-Bug #14604 Closed Unresolved dependency in Text_Wiki_Render_Latex_Freelink
-Bug #18289 Closed List not properly parsed 
-Bug #19028 Closed remove error_reporting (for PEAR QA team)
-Bug #20110 Closed package.xml does not validate
-Req #20274 Closed Please Provides LICENSE file
+Bug #23791  Undefined offset: 2 in /usr/share/php/Text/Wiki.php
+GitHub #3   Fix recursive call to constructor [rjsmelo]
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
