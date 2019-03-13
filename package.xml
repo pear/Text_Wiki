@@ -561,6 +561,7 @@ Req #20274 Closed Please Provides LICENSE file
 QA release
 
 Bug #23791  Undefined offset: 2 in /usr/share/php/Text/Wiki.php
+GitHub #3   Fix recursive call to constructor [rjsmelo]
    </notes>
   </release>
  </changelog>
