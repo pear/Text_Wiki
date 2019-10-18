@@ -1221,7 +1221,7 @@ class Text_Wiki
         $name = '';
         $exploded = explode("_", get_class($this));
         if (isset($exploded[2])) {
-            $name = isset($exploded[2]);
+            $name = $exploded[2];
         }
 
         $rule = ucwords(strtolower($rule));
