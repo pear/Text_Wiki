@@ -699,7 +699,7 @@ class Text_Wiki
         // the target name is not null, and not '', but does not exist
         // in the list of rules. this means we're trying to insert after
         // a target key, but the target key isn't there.
-        if (! is_null($tgt) && $tgt != '' 
+        if (! is_null($tgt) && $tgt != ''
             && ! in_array($tgt, $this->rules)
         ) {
             return false;
@@ -947,7 +947,7 @@ class Text_Wiki
             for ($i = 0; $i < $k; $i++) {
 
                 // the current character
-                $char = $this->source{$i};
+                $char = $this->source[$i];
 
                 // are alredy in a delimited section?
                 if ($in_delim) {
@@ -1182,7 +1182,7 @@ class Text_Wiki
      * @param int   $rule    The rule name to use.
      * @param array $options An associative array of options for the
      *                       token array element.  The keys and values are
-     *                       specific to the rule, and may or may not be common 
+     *                       specific to the rule, and may or may not be common
      *                       to other rule options.  Typical options keys are
      *                       'text' and 'type' but may include others.
      *
