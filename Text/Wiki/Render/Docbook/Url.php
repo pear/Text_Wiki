@@ -77,7 +77,7 @@ class Text_Wiki_Render_Docbook_Url extends Text_Wiki_Render {
         } else {
 
             // should we build a target clause?
-            if ($href{0} == '#' ||
+            if ($href[0] == '#' ||
               strtolower(substr($href, 0, 7)) == 'mailto:') {
               // targets not allowed for on-page anchors
               // and mailto: links.
