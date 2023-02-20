@@ -70,7 +70,7 @@ class Text_Wiki_Render_Docbook_Colortext extends Text_Wiki_Render {
         $color = $options['color'];
 
         if (!in_array($color, $this->getConf('colors', array())) &&
-             $color{0} != '#') {
+             $color[0] != '#') {
             $color = '#' . $color;
         }
         return '<phrase role="' . $this->getConf('role', 'color') . '" ' .
