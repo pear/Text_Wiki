@@ -167,7 +167,9 @@ class Text_Wiki_Parse {
     {
         $this->wiki->source = preg_replace_callback(
             $this->regex,
-            array(&$this, 'process'),
+            function ($matches) {
+                return $this->process($matches);
+            },
             $this->wiki->source
         );
     }

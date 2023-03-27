@@ -137,7 +137,9 @@ class Text_Wiki_Parse_Default_Wikilink extends Text_Wiki_Parse {
         $tmp_regex = '/\[' . $this->regex . ' (.+?)\]/'.($this->getConf('utf-8') ? 'u' : '');
         $this->wiki->source = preg_replace_callback(
             $tmp_regex,
-            array(&$this, 'processDescr'),
+            function ($matches) {
+                return $this->processDescr($matches);
+            },
             $this->wiki->source
         );
 
@@ -153,7 +155,9 @@ class Text_Wiki_Parse_Default_Wikilink extends Text_Wiki_Parse {
         $tmp_regex = "/(^|[^{$either}\-_]){$this->regex}/".($this->getConf('utf-8') ? 'u' : '');
         $this->wiki->source = preg_replace_callback(
             $tmp_regex,
-            array(&$this, 'process'),
+            function ($matches) {
+                return $this->process($matches);
+            },
             $this->wiki->source
         );
     }
